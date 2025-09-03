@@ -1,0 +1,55 @@
+# Set file descriptor limit
+ulimit -n 4096
+
+# Environment variables
+export GOPATH="$HOME/golang"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:/opt/homebrew/sbin:/opt/homebrew/bin:$HOME/bin:$GOPATH/bin:$PATH"
+
+# Initialize pyenv
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+# Aliases for pyenv virtual environments
+alias ineedpython="pyenv activate ineedpython"
+alias idontneedpython="pyenv deactivate ineedpython"
+alias pnuke="pyenv virtualenv-delete   ineedpython &&  pyenv virtualenv 3.12.3 ineedpython"
+
+# Export additional environment variables
+export CLICOLOR=1
+export TERM=xterm
+export HOMEBREW_AUTO_UPDATE_SECS=86400
+
+#zsh crap
+alias history="history 0"
+
+# History settings
+export HISTSIZE=100000                   # Big history size
+export SAVEHIST=100000                   # Big history file size
+export HISTFILE=~/.zsh_history           # History file location
+
+# History options
+setopt HIST_IGNORE_DUPS                 # Ignore duplicate commands
+setopt HIST_IGNORE_ALL_DUPS             # Remove duplicate commands from the history file
+setopt APPEND_HISTORY                   # Append new history to the history file
+setopt SHARE_HISTORY                    # Share history among all Zsh sessions
+setopt INC_APPEND_HISTORY               # Immediately append commands to the history file
+
+autoload -Uz compinit
+compinit
+
+# Remove redundant history saving and reloading
+# These are unnecessary and might cause issues:
+# autoload -Uz add-zsh-hook
+# add-zsh-hook preexec () { history -a }
+# add-zsh-hook precmd () { history -r }
+
+
+# VM aliases example with jump host
+#alias lts2204au="ssh  -J mikron@192.168.42.51 192.168.213.139"
+
+# Enable kubectl completion
+source <(kubectl completion zsh)
+
+# Terraform completion
+#compdef terraform=/opt/homebrew/bin/terraform terraform
+
