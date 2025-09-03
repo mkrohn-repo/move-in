@@ -22,7 +22,6 @@ export HOMEBREW_AUTO_UPDATE_SECS=86400
 #zsh crap
 alias history="history 0"
 
-# History settings
 export HISTSIZE=100000                   # Big history size
 export SAVEHIST=100000                   # Big history file size
 export HISTFILE=~/.zsh_history           # History file location
@@ -31,24 +30,21 @@ export HISTFILE=~/.zsh_history           # History file location
 setopt HIST_IGNORE_DUPS                 # Ignore duplicate commands
 setopt HIST_IGNORE_ALL_DUPS             # Remove duplicate commands from the history file
 setopt APPEND_HISTORY                   # Append new history to the history file
-setopt SHARE_HISTORY                    # Share history among all Zsh sessions
-setopt INC_APPEND_HISTORY               # Immediately append commands to the history file
+unsetopt SHARE_HISTORY                  # No need to share across all terms.  almost defeats the point
+unsetopt INC_APPEND_HISTORY               # DO not immediately append commands to the history file
+
+# Keep history sane
+setopt HIST_REDUCE_BLANKS
+setopt HIST_IGNORE_SPACE
 
 autoload -Uz compinit
 compinit
-
-# Remove redundant history saving and reloading
-# These are unnecessary and might cause issues:
-# autoload -Uz add-zsh-hook
-# add-zsh-hook preexec () { history -a }
-# add-zsh-hook precmd () { history -r }
-
 
 # VM aliases example with jump host
 #alias lts2204au="ssh  -J mikron@192.168.42.51 192.168.213.139"
 
 # Enable kubectl completion
-source <(kubectl completion zsh)
+#source <(kubectl completion zsh)
 
 # Terraform completion
 #compdef terraform=/opt/homebrew/bin/terraform terraform
