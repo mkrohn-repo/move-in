@@ -19,9 +19,6 @@ export VAGRANT_HOME=$HOME/exclude/.vagrant.d
 alias vmrun="/Applications/VMware\ Fusion.app/Contents/Library/vmrun"
 #jumphost sample
 alias k8sc00="ssh -J mikron@192.168.42.51 mikron@192.168.213.100"
-alias k8sw00="ssh -J mikron@192.168.42.51 mikron@192.168.213.101"
-alias k8sw01="ssh -J mikron@192.168.42.51 mikron@192.168.213.102"
-alias mygitlab="ssh -J mikron@192.168.42.51 mikron@192.168.213.69"
 #k8s
 source <(kubectl completion bash)
 #
