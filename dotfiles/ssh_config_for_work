@@ -1,0 +1,17 @@
+#these are some sample host configurations that can be leveraged on my next role
+#also, no great secrets exposed here, just how to use them
+Host *
+    AddKeysToAgent yes
+    UseKeychain yes
+    IdentitiesOnly yes
+
+Host github.com
+    HostName github.com
+    IdentityFile ~/.ssh/id_git
+    IdentitiesOnly yes
+
+#this is an old linux academy configuration, that is practically drag and drop 
+Host *.mylabserver.com
+    User cloud_user
+    IdentityFile ~/.ssh/id_la
+    IdentitiesOnly yes
