@@ -1,6 +1,8 @@
 # move-in
 
-Welcome. Directories are described below. This repository is **actively maintained**.
+A **Platform/SRE move-in kit** with dotfiles and Python helpers.  
+
+this repository is **actively maintained** and designed for others to copy, adapt, and extend.
 
 ## Usage 
 
@@ -14,18 +16,18 @@ git clone git@github.com:mkrohn-repo/move-in.git
 
 ## What's Inside:
 
-### `dotfiles`
+### [`dotfiles`](./dotfiles)
 **Platform/SRE toolbox — dotfiles**  
 - zsh configuration with sample aliases and pyenv setup you can toggle on/off  
 - sample git, vim, and bash profiles  
-- **Note:** automation doesn’t auto-rename files — shells are personal. Pick what’s useful.  
+- **Note:** automation doesn’t auto-rename files — shells are personal. Use what fits.
 
 
-### `useful_python`
+### [`useful_python`](./useful_python)
 **Platform/SRE toolbox — Python helpers**  
 - **boto3**: reusable for AWS sessions, pagination, and common tasks
 - **requests**: wrappers for handling HTTP requests
-- **requests_v2**: wrappers for handling HTTP requests, revised to include timeouts, test code, typing and docstrings.
+- **requests_v2**: Improved HTTP request wrappers with timeouts, tests, typing and docstrings.
 
 ## Roadmap
 - Add bearer token and retry support to HTTP(S) request functions 
