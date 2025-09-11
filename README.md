@@ -1,6 +1,6 @@
-# mkrohn_public
+# move-in
 
-Welcome. Directories and subdirectories are described below. This repository is **actively maintained**.
+Welcome. Directories are described below. This repository is **actively maintained**.
 
 ## Usage 
 
