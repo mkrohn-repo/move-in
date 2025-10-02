@@ -1,5 +1,5 @@
-#these are some sample host configurations that can be leveraged on my next role
-#also, no great secrets exposed here, just how to use them
+# these are some sample host configurations that can be leveraged on my next role
+# also, no great secrets exposed here, just how to use them
 Host *
     AddKeysToAgent yes
     UseKeychain yes
@@ -10,8 +10,14 @@ Host github.com
     IdentityFile ~/.ssh/id_git
     IdentitiesOnly yes
 
-#this is an old linux academy configuration, that is practically drag and drop 
+# this is an old linux academy configuration, that is practically drag and drop 
 Host *.mylabserver.com
     User cloud_user
     IdentityFile ~/.ssh/id_la
     IdentitiesOnly yes
+
+# if you work with ephemeral VM's:
+Host k8s*
+  StrictHostKeyChecking no
+  UserKnownHostsFile=/dev/null
+
